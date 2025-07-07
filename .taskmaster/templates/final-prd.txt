@@ -1,0 +1,111 @@
+
+# Overview
+ScolaLink is a mobile application built with React Native and Expo designed for students. It provides a unified digital environment for academic tracking, school communication, homework management, classroom life, and administrative updates. The app addresses the lack of centralized, student-friendly platforms in many educational institutions, especially in contexts where digital tools are underutilized.
+
+# Core Features
+1. **Student Profile**
+   - Unique student ID (QR code/matricule), personal and family info, photo, class history.
+   - Importance: Builds identity and facilitates attendance, communication, and tracking.
+
+2. **Academic Performance Tracking**
+   - Interactive scoreboards, dynamic progress graphs, global/class averages.
+   - Importance: Motivates students and helps track strengths/weaknesses.
+
+3. **Ranking System**
+   - Class leaderboard, monthly badges, top 3 display.
+   - Importance: Encourages academic engagement through gamification.
+
+4. **Schedule View**
+   - Weekly planner, color-coded subjects, daily highlights, alerts.
+   - Importance: Improves time management.
+
+5. **Subject-Based Class Community**
+   - Real-time group chat with teachers and peers, file sharing, polls.
+   - Importance: Encourages collaboration and fast clarification.
+
+6. **General Announcements**
+   - School-wide news, event calendar, push notifications.
+   - Importance: Keeps students informed.
+
+7. **Private Messaging (Admin > Student)**
+   - Behavior notices, convocations, private alerts.
+   - Importance: Ensures direct and confidential communication.
+
+8. **Attendance Management**
+   - Attendance logs, absence graphs, justification tracking.
+   - Importance: Reinforces accountability and parental transparency.
+
+9. **Report Cards**
+   - Monthly and term reports in secured PDF, digital signature for parents.
+   - Importance: Simplifies delivery and archiving.
+
+10. **School Journal**
+    - Student articles, interviews, media, moderated comments.
+    - Importance: Boosts expression and community building.
+
+11. **Smart Notifications**
+    - Customizable alerts for grades, homework, events.
+    - Importance: Keeps students updated without overload.
+
+# User Experience
+- **Personas**: Middle/high school students aged 12–18.
+- **User Flow**: Login → Dashboard → View schedule, notes, messages, tasks → Chat → Submit homework.
+- **UI/UX**: Mobile-first, clean dashboard, color-coded UI, minimal clicks, accessible offline for key features.
+
+# Technical Architecture
+- **Frontend**: React Native + Expo (TypeScript)
+- **Backend**: Firebase / Supabase (auth, DB, storage)
+- **Real-time messaging**: Firebase Realtime DB or Socket.io
+- **Push Notifications**: Expo Notification API
+- **PDF Storage & Delivery**: Firebase Storage / Cloud Functions
+- **APIs**: Google Calendar (events), QR Code generation, PDF generation
+- **Infrastructure**: Serverless, scalable (Cloud Functions + NoSQL)
+
+# Development Roadmap
+### Phase 1 – MVP
+- Authentication (QR + Email/Password)
+- Student profile module
+- Notes dashboard with graphs
+- Schedule view
+- Homework section (upload/download)
+- Notifications (basic)
+- Chat per subject (basic, Firebase)
+- Basic absence tracking
+- Report card viewer
+
+### Phase 2 – Core Extensions
+- Announcements (general/private)
+- School journal section
+- Advanced presence tracking (QR attendance)
+- Bulletin generation & signature
+- Full notification settings
+- Chat enhancements (polls, voice messages)
+
+### Phase 3 – Future Enhancements
+- Offline sync (local storage)
+- Parental access version
+- Incident reporting system
+- Student calendar & planner
+- Gamified ranking system
+
+# Logical Dependency Chain
+1. Setup authentication and database structure
+2. Profile & notes modules (user data first)
+3. Schedule and homework (core use cases)
+4. Chat and presence tracking
+5. Report cards & PDF
+6. Journals & announcements
+7. Notifications full logic
+8. Optional: Offline sync and advanced features
+
+# Risks and Mitigations
+- **Technical**: Real-time sync — use Firebase or handle retries locally.
+- **MVP clarity**: Define exactly what student needs daily — prioritize those features.
+- **Resource**: If solo/small team, use managed backend services (Firebase/Supabase) to reduce infrastructure overhead.
+
+# Appendix
+- UI design inspiration: Google Classroom, Notion, Apple Schoolwork
+- Research: UNESCO digital learning reports, EdTech UX best practices
+- Specs: React Native SDK 50+, Expo SDK, Firebase 10+, use TypeScript throughout
+
+
