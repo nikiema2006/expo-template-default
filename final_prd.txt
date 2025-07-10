@@ -35,7 +35,7 @@ ScolaLink est une application mobile éducative développée avec React Native e
    - Interface de communication étendue
 
 ## Parcours Utilisateur
-1. Connexion via QR code ou identifiants
+1. Connexion via identifiants
 2. Accès au tableau de bord personnalisé
 3. Navigation intuitive entre les modules
 4. Réception et gestion des notifications
@@ -159,3 +159,20 @@ ScolaLink est une application mobile éducative développée avec React Native e
 - Analyse des applications éducatives existantes
 - Études des besoins utilisateurs
 - Benchmarks de performance
+
+
+
+import { Tabs } from "expo-router";
+import { Drawer } from 'expo-router/Drawer';
+import React from "react";
+
+export default function _layout() {
+  return (
+    <Tabs tabBar={(props) => <CustomNavBar {...props} />}>
+      <Tabs.Screen name="index" options={{ title: "Home" }} />
+      <Tabs.Screen name="search" options={{ title: "Search" }} />
+      <Tabs.Screen name="analytics" options={{ title: "Analytics" }} />
+      <Tabs.Screen name="wallet" options={{ title: "Wallet" }} />
+      <Tabs.Screen name="profile" options={{ title: "Profile" }} />
+      <Drawer/>
+    </Tabs>
