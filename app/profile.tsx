@@ -1,16 +1,47 @@
 import { BlurView } from 'expo-blur';
-import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
-  export default function profile() {
+import { LinearGradient } from 'expo-linear-gradient';
+//import React from 'react';
+import * as React from "react";
+import { Dimensions, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+//import { BarChart } from 'react-native-gifted-charts';
+import { useSharedValue } from "react-native-reanimated";
+import {
+  ICarouselInstance
+} from "react-native-reanimated-carousel";
+
+const data = [...new Array(6).keys()];
+const width = Dimensions.get("window").width;
+
+
+
+export default function profile() {
+
+  const ref = React.useRef<ICarouselInstance>(null);
+  const progress = useSharedValue<number>(0);
+  
+  const onPressPagination = (index: number) => {
+    ref.current?.scrollTo({
+      /**
+       * Calculate the difference between the current index and the target index
+       * to ensure that the carousel scrolls to the nearest index
+       */
+      count: index - progress.value,
+      animated: true,
+    });
+  };
+
     return (
       <View>
-      <View style={{
+      <LinearGradient 
+       colors={['rgba(35, 32, 206, 0.56)', 'transparent']}
+      
+      style={{
         flex: 1,
         //alignContent: 'center',
         flexDirection: 'row',
        // alignItems: '',
         justifyContent: 'space-around',
-        backgroundColor: 'pink',
+       // backgroundColor: 'pink',
         width: 'auto',
         height: 200,
         //justifyContent: 'center'
@@ -25,8 +56,8 @@ import { Text, TouchableOpacity, View } from 'react-native';
           borderRadius: 20,
           alignItems:'center',
           padding: 10,
-          borderWidth : 0,
-          shadowColor: 'black',
+          //borderWidth : 0,
+          shadowColor: 'grey',
           shadowOpacity: 10,
           shadowRadius: 5,
         }}>
@@ -37,33 +68,52 @@ import { Text, TouchableOpacity, View } from 'react-native';
           }}> mots du jour</Text>
         </BlurView >
         </TouchableOpacity>
+       
+       
+       
         <View style={{
-           backgroundColor: 'ghostwhite',
+         //  backgroundColor: 'rgba(26, 20, 20, 0.71)',
            width: 230,
            height: 200,
            borderRadius: 20,
-           alignItems:'center',
            padding: 10,
            borderWidth : 0,
-           shadowColor: 'red',
+           shadowColor: 'grey',
            shadowOpacity: 10,
            opacity: 1,
            shadowRadius: 5,
+           flexDirection:'row'
         }}>
-          <Text> Trimestre N°2 </Text>
 
-          <View>
-          <View></View>
-          <View></View>
+          <LinearGradient colors={['rgba(82, 91, 173, 0.4)', 'transparent']} style={{ flexDirection: 'column', borderWidth : 0, shadowColor: 'grey',shadowOpacity: 10, width: 85, height: 180, borderRadius:10, alignItems: 'center', gap: 2, justifyContent: 'space-around', padding: 1}}>
+            <BlurView intensity={50} tint='dark' style={{ backgroundColor: 'black', width: 80, height: 95 , borderRadius:10 }}>
+              <Text style={{ fontSize:30, fontFamily: "time new roman", fontWeight:'bold'}}>  19.45</Text>
+           </BlurView>
+           <BlurView intensity={20} tint='dark' style={{ backgroundColor: 'red', width: 80, height: 75,borderRadius:10, backgroundImage:'C:\Users\Administrator\Downloads\gsao trae task ùanager\assets\images\react-logo.png', }}>
+
+           </BlurView>
+          
+        
+
+          </LinearGradient>
+          
+             <View style= {{ alignItems: 'center', paddingStart:10, backgroundImage:'C:\Users\Administrator\Downloads\gsao trae task ùanager\assets\images\react-logo.png'}}>
+            <BlurView style={{width: 110, height: 180, borderRadius:10, backgroundImage:'../assets/images/react-logo.png' }}>
+              <ImageBackground  source={require('../assets/images/react-logo.png')}>
+
+              </ImageBackground>
+            </BlurView>
           </View>
           <View>
 
             </View>
+
+
         </View>
   
-      </View>
+      </LinearGradient>
+      
     </View>
-
 
 
     )
@@ -71,6 +121,33 @@ import { Text, TouchableOpacity, View } from 'react-native';
 
   
 
+
+
+  const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'orange',
+  },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 300,
+  },
+  button: {
+    padding: 15,
+    alignItems: 'center',
+    borderRadius: 5,
+  },
+  text: {
+    backgroundColor: 'transparent',
+    fontSize: 15,
+    color: '#fff',
+  },
+});
 
 
 

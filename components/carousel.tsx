@@ -2,8 +2,8 @@ import * as React from "react";
 import { Dimensions, Text, View } from "react-native";
 import { useSharedValue } from "react-native-reanimated";
 import Carousel, {
-  ICarouselInstance,
-  Pagination,
+    ICarouselInstance,
+    Pagination,
 } from "react-native-reanimated-carousel";
  
 const data = [...new Array(6).keys()];
@@ -30,18 +30,18 @@ function App() {
         ref={ref}
         width={width}
         height={width / 2}
-        data={data}
+        data={[4]}
         onProgressChange={progress}
         renderItem={({ index }) => (
           <View
             style={{
               flex: 1,
-              borderWidth: 1,
+              borderWidth: 5,
               justifyContent: "center",
             }}
           >
-            <Text> dd</Text>
-            <Text style={{ textAlign: "center", fontSize: 30 }}>{index} dff</Text>
+            <Text> sali </Text>
+            <Text style={{ textAlign: "center", fontSize: 30 }}>{index} ff</Text>
           </View>
         )}
       />
