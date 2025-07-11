@@ -138,7 +138,7 @@ export default function profile() {
     height: 300,
   },
   button: {
-    padding: 15,
+    padding: 10,
     alignItems: 'center',
     borderRadius: 5,
   },
