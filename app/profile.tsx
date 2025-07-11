@@ -98,7 +98,7 @@ export default function profile() {
           </LinearGradient>
           
              <View style= {{ alignItems: 'center', paddingStart:10, backgroundImage:'C:\Users\Administrator\Downloads\gsao trae task ùanager\assets\images\react-logo.png'}}>
-            <BlurView style={{width: 110, height: 180, borderRadius:10, backgroundImage:'../assets/images/react-logo.png' }}>
+            <BlurView style={{width: 110, overflow: 'hidden' , height: 180, borderRadius:10, backgroundImage:'../assets/images/react-logo.png' }}>
               <ImageBackground  source={require('../assets/images/react-logo.png')}>
 
               </ImageBackground>
