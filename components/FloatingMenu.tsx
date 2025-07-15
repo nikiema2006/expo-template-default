@@ -78,7 +78,7 @@ export const FloatingMenu = () => {
         >
           <MaterialCommunityIcons
             name="plus"
-            size={30}
+            size={31}
             color="#fff"
           />
         </Animated.View>
