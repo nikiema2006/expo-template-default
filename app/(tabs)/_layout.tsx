@@ -59,6 +59,33 @@ export default function TabLayout() {
             ),
           }}
         />
+        <Tabs.Screen
+          name="communiqué"
+          options={{
+            title: 'Communiqués',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="megaphone-outline" size={size} color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="devoirs"
+          options={{
+            title: 'Devoirs',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="book-outline" size={size} color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="emploie-du-temps"
+          options={{
+            title: 'Emploi du temps',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="calendar-outline" size={size} color={color} />
+            ),
+          }}
+        />
       </Tabs>
       <FloatingMenu />
     </View>

@@ -90,7 +90,7 @@ export const FloatingMenu = () => {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    bottom: 80,
+    bottom: 120, // Augmenté pour éviter la superposition avec la barre d'onglets
     right: 20,
     alignItems: 'center',
   },
@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     padding: 10,
     paddingBottom: 20,
+    zIndex: 1000, // Ajouté pour s'assurer que le menu est au-dessus des autres éléments
   },
   menuItem: {
     marginVertical: 5,
