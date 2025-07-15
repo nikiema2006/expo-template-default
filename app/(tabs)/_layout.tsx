@@ -1,66 +1,62 @@
-import Colors from '@/constants/Colors'
-import { SimpleLineIcons } from '@expo/vector-icons'
-import { Tabs } from 'expo-router'
-import React from 'react'
-import { View } from 'react-native'
+import { Ionicons } from '@expo/vector-icons';
+import { BlurView } from 'expo-blur';
+import { Tabs } from 'expo-router';
+import { Platform, StyleSheet } from 'react-native';
 
-const Layout = () => {
+export default function TabLayout() {
   return (
-    <Tabs screenOptions={{
+    <Tabs
+      screenOptions={{
         tabBarStyle: {
-            backgroundColor: 'white',
-            position: 'absolute',
-            bottom: 40,
-            justifyContent: 'center',
-            height: 63,
-            marginHorizontal: 120,
-            paddingHorizontal: 10,
-            paddingVertical: 8,
-            paddingBottom: 8,
-            borderRadius: 40,
+          position: 'absolute',
+          bottom: 25,
+          left: 20,
+          right: 20,
+          borderRadius: 15,
+          height: 70,
+          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+          overflow: Platform.OS === 'ios' ? 'visible' : 'hidden',
         },
-        tabBarShowLabel: false,
-        tabBarActiveTintColor: 'black',
-        tabBarInactiveTintColor: 'white'
-    }}
+        tabBarBackground: () => (
+          <BlurView
+            tint="light"
+            intensity={30}
+            style={StyleSheet.absoluteFill}
+          />
+        ),
+        tabBarActiveTintColor: '#130057',
+        tabBarInactiveTintColor: 'gray',
+        tabBarShowLabel: true,
+        headerShown: true,
+      }}
     >
-        <Tabs.Screen name='index' options={{
-            tabBarIcon: ({color, size,focused}) => (
-                <View style={{
-                    padding: 12,
-                    borderRadius: 30,
-                    borderBlockColor: focused ? Colors.tabIconSelected : Colors.tabIconDefault
-                }}>
-                    <SimpleLineIcons name='pie-chart' size={size} color={color}/>
-                </View>
-            )
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Accueil',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home-outline" size={size} color={color} />
+          ),
         }}
-        />
-        <Tabs.Screen name='message' options={{
-            tabBarIcon: ({color, size,focused}) => (
-                <View style={{
-                    padding: 12,
-                    borderRadius: 30,
-                    borderBlockColor: focused ? Colors.tabIconSelected : Colors.tabIconDefault
-                }}>
-                    <SimpleLineIcons name='pie-chart' size={size} color={color}/>
-                </View>
-            )
+      />
+      <Tabs.Screen
+        name="message"
+        options={{
+          title: 'Messages',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="chatbox-outline" size={size} color={color} />
+          ),
         }}
-        />
-        <Tabs.Screen name='note' options={{
-            tabBarIcon: ({color, size,focused}) => (
-                <View style={{
-                    padding: 12,
-                    borderRadius: 30,
-                    borderBlockColor: focused ? Colors.tabIconSelected : Colors.tabIconDefault
-                }}>
-                    <SimpleLineIcons name='pie-chart' size={size} color={color}/>
-                </View>
-            )
+      />
+      <Tabs.Screen
+        name="note"
+        options={{
+          title: 'Notes',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="document-text-outline" size={size} color={color} />
+          ),
         }}
-        />
+      />
     </Tabs>
-  )
+  );
 }
-export default Layout
