@@ -1,5 +1,4 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { BlurView } from 'expo-blur';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { Animated, StyleSheet, TouchableOpacity, View } from 'react-native';
@@ -29,7 +28,7 @@ export const FloatingMenu = () => {
   return (
     <View style={styles.container}>
       {isOpen && (
-        <BlurView intensity={20} tint="light" style={styles.blurContainer}>
+        <View style={styles.menuContainer}>
           {menuItems.map((item) => {
             const itemAnimation = animation.interpolate({
               inputRange: [0, 1],
@@ -53,14 +52,14 @@ export const FloatingMenu = () => {
                 >
                   <MaterialCommunityIcons
                     name={item.icon as keyof typeof MaterialCommunityIcons.glyphMap}
-                    size={24}
+                    size={28}
                     color="#130057"
                   />
                 </TouchableOpacity>
               </Animated.View>
             );
           })}
-        </BlurView>
+        </View>
       )}
       <TouchableOpacity
         style={[styles.plusButton, isOpen && styles.plusButtonActive]}
@@ -90,19 +89,27 @@ export const FloatingMenu = () => {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    bottom: 120, // Augmenté pour éviter la superposition avec la barre d'onglets
+    bottom: 120,
     right: 20,
     alignItems: 'center',
+    zIndex: 1000,
   },
-  blurContainer: {
+  menuContainer: {
     position: 'absolute',
     bottom: 70,
     right: 0,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: '#ffffff',
     borderRadius: 15,
     padding: 10,
     paddingBottom: 20,
-    zIndex: 1000, // Ajouté pour s'assurer que le menu est au-dessus des autres éléments
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   menuItem: {
     marginVertical: 5,
