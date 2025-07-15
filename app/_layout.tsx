@@ -1,63 +1,34 @@
-import CustomDrawer from "@/components/CustomDrawer";
-import { Drawer } from 'expo-router/drawer';
-import React from "react";
-import { useColorScheme } from 'react-native';
+import { useFonts } from 'expo-font'
+import { Stack } from 'expo-router'
+import * as SplashScreen from 'expo-splash-screen'
+import React, { useEffect } from 'react'
+import 'react-native-reanimated'
 
-export default function Layout() {
-  const colorScheme = useColorScheme();
 
-  return (
-    <Drawer
-      drawerContent={(props) => <CustomDrawer {...props} />}
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: '#130057',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        },
-        drawerStyle: {
-          backgroundColor: colorScheme === 'dark' ? '#1a1a1a' : '#fff',
-        },
-        drawerActiveTintColor: '#130057',
-      }}
-    >
-      <Drawer.Screen 
-        name="index" 
-        options={{ 
-          drawerLabel: 'Accueil',
-          title: 'Accueil'
-        }} 
-      />
-      <Drawer.Screen 
-        name="StudentHomeScreen" 
-        options={{ 
-          drawerLabel: 'Rechercher',
-          title: 'Rechercher'
-        }} 
-      />
-      <Drawer.Screen 
-        name="analytics" 
-        options={{ 
-          drawerLabel: 'Analytiques',
-          title: 'Analytiques'
-        }} 
-      />
-      <Drawer.Screen 
-        name="wallet" 
-        options={{ 
-          drawerLabel: 'Portefeuille',
-          title: 'Portefeuille'
-        }} 
-      />
-      <Drawer.Screen 
-        name="profile" 
-        options={{ 
-          drawerLabel: 'Profil',
-          title: 'Profil'
-        }} 
-      />
-    </Drawer>
-  );
+
+SplashScreen.preventAutoHideAsync();
+
+
+
+export default function RootLayout() {
+  const [loaded] = useFonts({
+    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+  });
+
+  useEffect(() => {
+    if (loaded) {
+        SplashScreen.hideAsync();
+    }
+  }, [loaded]);
+
+  if (!loaded) {
+    return null;
+  }
+
+  
+    return (
+    <Stack>
+      <Stack.Screen name="(tabs)" options={{ headerShown:false }}/>
+    </Stack>
+  )
 }

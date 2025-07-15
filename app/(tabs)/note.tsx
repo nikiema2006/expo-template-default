@@ -1,11 +1,12 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export default function search() {
+const note = () => {
   return (
     <View>
-      <Text>search</Text>
-      
+      <Text>note</Text>
     </View>
   )
 }
+
+export default note

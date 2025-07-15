@@ -1,10 +1,12 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export default function wallet() {
+const index = () => {
   return (
     <View>
-      <Text>wallet</Text>
+      <Text>index</Text>
     </View>
   )
 }
+
+export default index
